@@ -1,0 +1,965 @@
+{
+    "EntidadeEnvelopeGenerico": {
+        "cabecalho": {
+            "dataGeracao": "20241006T150256",
+            "idEleitoral": [
+                "idPleito",
+                452
+            ]
+        },
+        "fase": "oficial",
+        "identificacao": [
+            "identificacaoSecaoEleitoral",
+            {
+                "municipioZona": {
+                    "municipio": 1392,
+                    "zona": 1
+                },
+                "local": 1295,
+                "secao": 439
+            }
+        ],
+        "tipoEnvelope": "envelopeBoletimUrna"
+    },
+    "EntidadeBoletimUrna": {
+        "cabecalho": {
+            "dataGeracao": "20241006T150256",
+            "idEleitoral": [
+                "idPleito",
+                452
+            ]
+        },
+        "fase": "oficial",
+        "urna": {
+            "tipoUrna": "secao",
+            "versaoVotacao": "9.30.0.0 - Tupiniquim",
+            "correspondenciaResultado": {
+                "identificacao": [
+                    "identificacaoSecaoEleitoral",
+                    {
+                        "municipioZona": {
+                            "municipio": 1392,
+                            "zona": 1
+                        },
+                        "local": 1,
+                        "secao": 439
+                    }
+                ],
+                "carga": {
+                    "numeroInternoUrna": 2270244,
+                    "numeroSerieFC": "01e91865",
+                    "identificadorGeradorMidia": {
+                        "nome": "RACWCSC03",
+                        "serialCertificadoTPM": "6E3304905E6EC479D7C4",
+                        "serialInstalacao": "EDF0085A"
+                    },
+                    "dataHoraCarga": "20240927T125500",
+                    "codigoCarga": "570468136039261752227698"
+                }
+            },
+            "tipoArquivo": "votacaoUE",
+            "numeroSerieFV": "725b832f"
+        },
+        "identificacaoSecao": {
+            "municipioZona": {
+                "municipio": 1392,
+                "zona": 1
+            },
+            "local": 1295,
+            "secao": 439
+        },
+        "dataHoraEmissao": "20241006T150225",
+        "dadosSecaoSA": [
+            "dadosSecao",
+            {
+                "dataHoraAbertura": "20241006T060001",
+                "dataHoraEncerramento": "20241006T150048"
+            }
+        ],
+        "qtdEleitoresCompareceram": 222,
+        "detalhamentoComparecimento": {
+            "qtdEleitoresCompareceramSemBiometria": 1,
+            "qtdEleitoresHabilitadosPorBiometria": 217,
+            "qtdEleitoresHabilitadosPorBiografia": 4
+        },
+        "resultadosVotacaoPorEleicao": [
+            {
+                "idEleicao": 619,
+                "qtdEleitoresAptos": 285,
+                "qtdEleitoresAptosSecao": 285,
+                "qtdEleitoresAptosTTE": 0,
+                "resultadosVotacao": [
+                    {
+                        "tipoCargo": "proporcional",
+                        "qtdComparecimento": 222,
+                        "totaisVotosCargo": [
+                            {
+                                "codigoCargo": [
+                                    "cargoConstitucional",
+                                    "vereador"
+                                ],
+                                "ordemImpressao": 1,
+                                "votosVotaveis": [
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 10,
+                                            "codigo": 10000
+                                        },
+                                        "ordemGeracaoHash": 1,
+                                        "hash": "6babbcdfffe793d5cc1ae1b118ff42f4b6d8c1dd8e975b3f71c235b06f9fbc65c5a8edf4fa388d9e61e46101f365e94ee00b91607e2bb06f8d0364fefdb350db"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 3,
+                                        "identificacaoVotavel": {
+                                            "partido": 10,
+                                            "codigo": 10100
+                                        },
+                                        "ordemGeracaoHash": 2,
+                                        "hash": "671d8c6e0a6cbc7451e8c352acc53658c2445289b9ff343a89941f16c748e8ff979bb05f9ae918d71130cc26420bcc9632a311c9701365be5a7b67a110a5eafd"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 10,
+                                            "codigo": 10300
+                                        },
+                                        "ordemGeracaoHash": 3,
+                                        "hash": "52935ae88b0ebb3592a737296dd210486b158672a5e4f5e4e38bdc5fb7c339872b6f4c5a55c3dc4537b09c5aec26017cd2ef3cc52033a9d2ebe430d06883109d"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 6,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11000
+                                        },
+                                        "ordemGeracaoHash": 4,
+                                        "hash": "a082e0ad7bafb648d2972211f8e682c542dad6d1b0f718475d9fb74a726ec42a40a490cd15dcd5000fc03ddcd463cd2933daccf318a6401de66403722c602ceb"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 4,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11106
+                                        },
+                                        "ordemGeracaoHash": 5,
+                                        "hash": "f3389a75da3a30c87e73b537fe3b0986d5fbbe4fe28a8dde4b972a15a6b944cecc14db092d17fcd84055fb11188347b392f6e962c352866a70c95d33a5814826"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11111
+                                        },
+                                        "ordemGeracaoHash": 6,
+                                        "hash": "b5ddfb21c9bfc8b94a371dab20998bc92b1d9a2657147479306c84e0f860f88e8a3f4b2232e9385028a77a224894f69c9662900c92969e1f09da44e2ddefd143"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 3,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11122
+                                        },
+                                        "ordemGeracaoHash": 7,
+                                        "hash": "9197986474474a7adde113471da63c4e28cf4decc4ce165360467f4eaefe721dd7a0d9d1f2fc7747301321e8136eae3775700e9115ce81aab8442881432093f3"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 6,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11123
+                                        },
+                                        "ordemGeracaoHash": 8,
+                                        "hash": "221292ff1246c8362cdd14e56a9c0a8e1bceb7247fc8591aa3a971e535dacb42ad74525fae2be4a4f85234dc81292e7a9a3edb9c47110f4f298e62410fdc4162"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 2,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11200
+                                        },
+                                        "ordemGeracaoHash": 9,
+                                        "hash": "dcd06a71fc514544496a29125525415f43385e27c8ea7da68478d5e29c284f9a322bbcf490a863d7bb7f77fabe818fba9104e25c1e65d00fe63fa32c877346b0"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11211
+                                        },
+                                        "ordemGeracaoHash": 10,
+                                        "hash": "cd2c7af2045d1d799441c7a1e781e8d55fd80da9eab9c5f97cb5518a437dd05388f3df78550dbdcb8b01585f81227c9b381bcccf0ad612ca973e8b48745c897c"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 5,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11222
+                                        },
+                                        "ordemGeracaoHash": 11,
+                                        "hash": "a0a49a85307bdb205daeb68288bd06df1d8950c2a2afc87211ad77793a583d4eb80154219a978868edbf34a3992edbf7f6fd9ad405c7ed8be1e94b0e5a04c7dc"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11234
+                                        },
+                                        "ordemGeracaoHash": 12,
+                                        "hash": "2fddfd47c5658b384ca52ee3a1d1fab7db712f2c371efabc15e97b74153886fa01e2d5dee36a616f624c15390889c109cf63ab1e568f8fee36546bd27108719b"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 10,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11444
+                                        },
+                                        "ordemGeracaoHash": 13,
+                                        "hash": "b1088ac7c26e5cda05f5f116f3c20642ecb4f73129a4b05ab58f1cd1ae4e06b4225614689cb458e89e61936b7d6f33c59630de7206c13f8f1ecdd93007d19a37"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 4,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11555
+                                        },
+                                        "ordemGeracaoHash": 14,
+                                        "hash": "24b9f99b5a3e4ee74c33a7e19321813fee103e440307776822deca6b525886b200e587ccbff5911038e3b231ba7827294cf49ac4439443bedb6a6c913dca4337"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 13,
+                                            "codigo": 13131
+                                        },
+                                        "ordemGeracaoHash": 15,
+                                        "hash": "10c79e6b9b83ca5c9bf504df8da5333a5762b49531195ba2a58acb642e9aed5df90913b1e5882f905d3ce7b3f2371ddf346761f5e7f0da85b897b167f288945d"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 3,
+                                        "identificacaoVotavel": {
+                                            "partido": 15,
+                                            "codigo": 15000
+                                        },
+                                        "ordemGeracaoHash": 16,
+                                        "hash": "b85aedf5397285778f2eb10cc2311d9a79d1bb3837e17511c329567c082655b49d6e05702012cddb1a7ef29fe610912e342c3e7b74d34f2a4d90ea273ae7fa2f"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 3,
+                                        "identificacaoVotavel": {
+                                            "partido": 15,
+                                            "codigo": 15123
+                                        },
+                                        "ordemGeracaoHash": 17,
+                                        "hash": "f34f12da31d78dd52167a059a8ca7591e1c1d59323a29011f3b15c355ee2b5c6d22bfd3de29b027e44fb587b2dd43e106b48a217078cd8e9bc948a550a068883"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 15,
+                                            "codigo": 15333
+                                        },
+                                        "ordemGeracaoHash": 18,
+                                        "hash": "3fef837f2038abd2ed57fb034d2bb8a3bfa24ff77e07c378b9fb82633ce1ddf9c317d5272352d0e90faf87f5161eca6f60f28714bb290809c6fe68679362aa7d"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 3,
+                                        "identificacaoVotavel": {
+                                            "partido": 15,
+                                            "codigo": 15444
+                                        },
+                                        "ordemGeracaoHash": 19,
+                                        "hash": "f97a557b8dadbbaeac0e132f7d01a4e3ef8a4dc763fed956418a53dc5ef5f9c0da45f3a9d75cfaa1cc8547e4c17ad14e1e656c743527aa1f5edfe41e78a66e1f"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 4,
+                                        "identificacaoVotavel": {
+                                            "partido": 15,
+                                            "codigo": 15500
+                                        },
+                                        "ordemGeracaoHash": 20,
+                                        "hash": "4e23df624b21409b961698188cbc13ed2713e9ce3d86903662fd1b3e05ff7c76fefb5dc8f1f72b01b6687d4d8447a33aab2c0c38b07067cfbc2f663f05b39558"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 2,
+                                        "identificacaoVotavel": {
+                                            "partido": 15,
+                                            "codigo": 15612
+                                        },
+                                        "ordemGeracaoHash": 21,
+                                        "hash": "6248855fdc33e642e895b09e7214650b80778492367e64737cfdf38ff6f86191eb6e56a1e97bf6c575f1389069943a293986890a2bf1337b48da2b6a0115d303"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 15,
+                                            "codigo": 15777
+                                        },
+                                        "ordemGeracaoHash": 22,
+                                        "hash": "cfe917883e819c440a57356a0008d5859740d0c3a6de9faf93d9579372886736c82a08c2c14322121634370238dc398f06b7b4482c1e550dce4fa3c090f035d4"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 2,
+                                        "identificacaoVotavel": {
+                                            "partido": 18,
+                                            "codigo": 18123
+                                        },
+                                        "ordemGeracaoHash": 23,
+                                        "hash": "672e39bb0958e75d24b31d018cdb8c13bd7a6d9838cb52ba57ad721ad9f8af7c0209a3731d6c2586bc60440f7dfd234b537c65bfe88b2c1309da92a93e0bf853"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 2,
+                                        "identificacaoVotavel": {
+                                            "partido": 20,
+                                            "codigo": 20000
+                                        },
+                                        "ordemGeracaoHash": 24,
+                                        "hash": "5f2e8d0e96eba30f5d962d90c95140d5cfdd6ef58667117093bf42c037b7c0ab55e505d06c78f5df85b62f43cf2ae04d317d6a02690162452fe61f394bf88aea"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 20,
+                                            "codigo": 20111
+                                        },
+                                        "ordemGeracaoHash": 25,
+                                        "hash": "0f7ee7d0705ed41fcebad01ca38e4a5e320de92a1201e4f5b4a8ca670db55996a15f53db52b654a9600b41915ce5dd1da6ae835c537ca6e1f9879869076efb76"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 2,
+                                        "identificacaoVotavel": {
+                                            "partido": 20,
+                                            "codigo": 20121
+                                        },
+                                        "ordemGeracaoHash": 26,
+                                        "hash": "fe423241a30c6a24b317a7bc1c934a141688053dee4d967f73406a9bd95c0915c768488293b1e37436c8d0243b10d2fe40a86fa8f02e3909a74066eca5c4ac7c"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 3,
+                                        "identificacaoVotavel": {
+                                            "partido": 20,
+                                            "codigo": 20123
+                                        },
+                                        "ordemGeracaoHash": 27,
+                                        "hash": "6386225b57eafe9182c180687fe92ea8143c21decc1532c69b5e3d0d4379c4a8345c02b8d426beca09dde85ad18076e5d7d66ef33af94afa4bff7a92ad189678"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 22,
+                                            "codigo": 22123
+                                        },
+                                        "ordemGeracaoHash": 28,
+                                        "hash": "fc667f65a843451532e7d89938d7b5b39020e2603cc1e5ac07531451fb694edf36d79f219b1349616fd4815549c20152a6036c52bfb892446381d587849b88a8"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 3,
+                                        "identificacaoVotavel": {
+                                            "partido": 22,
+                                            "codigo": 22133
+                                        },
+                                        "ordemGeracaoHash": 29,
+                                        "hash": "240f10555d36a90c1eb45fd9a39c2578cc8fb8659a3775bb6f72666a2dea575b6cb8c07f6898274d7d5d4cd398241104713fb3baf82f974bea7c7fd0a10823ec"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 22,
+                                            "codigo": 22200
+                                        },
+                                        "ordemGeracaoHash": 30,
+                                        "hash": "fc38af0503dbd8fd70ba75c267490e9a39dce36f734e066f96e29905977a15c9d3bb6ed0e4f27f103ab10b3550bdde384fbfaed5a4aa687abb665366da5d6b8b"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 22,
+                                            "codigo": 22222
+                                        },
+                                        "ordemGeracaoHash": 31,
+                                        "hash": "7cda8e2b35bfc0ea559567a922b9912a12237e19958b6033fbb8443b356fb9712411aa18cdb00ce23ec68d64e6b60106094be537e174ec9ac3f04d2b6b9a4a53"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 5,
+                                        "identificacaoVotavel": {
+                                            "partido": 22,
+                                            "codigo": 22345
+                                        },
+                                        "ordemGeracaoHash": 32,
+                                        "hash": "0895286f3747e089ca0f9c1ace399f29115e750ce9230cd9333ff1009e11895530f23c46751b64ca9e56b8845617d67909a1aa3d20e45f981732ae32b09dded7"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 22,
+                                            "codigo": 22444
+                                        },
+                                        "ordemGeracaoHash": 33,
+                                        "hash": "81e560ffecdc2dc5e51e7c21fc9a7a6311da1c5c836fdb270b827622f8ebaf31b72ba9807bcb6020e95314f7efdc3bf5585e9ba1e6753885a4e3aa13cd01e76e"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 13,
+                                        "identificacaoVotavel": {
+                                            "partido": 22,
+                                            "codigo": 22555
+                                        },
+                                        "ordemGeracaoHash": 34,
+                                        "hash": "65758ae0977e1338581503536f591ab38c3fa1f5c736433093d9972e42972795ad20d41628e36aff54e78648ac780adf40b6c8c4f4d31a62d74095cd283d9d6e"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 22,
+                                            "codigo": 22999
+                                        },
+                                        "ordemGeracaoHash": 35,
+                                        "hash": "3692e65d1d02a35308678fedf0d3be3c3d1cee1ca2c64a57668b1c2044d58261f8d21eb81b49b41f568b6ad441fbabdbdfaf3f41de206129d37ea84c5fc10b4d"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 23,
+                                            "codigo": 23123
+                                        },
+                                        "ordemGeracaoHash": 36,
+                                        "hash": "4dfa37b470218c576a5187eee30a45ee8d416434887f28f7333246ada28fa5335fa42b95505770dc725393ceaf296fe8a97784b4d57ffd0daa4993a58678c7cc"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 23,
+                                            "codigo": 23555
+                                        },
+                                        "ordemGeracaoHash": 37,
+                                        "hash": "1e507dfb9ba02eb06f55b6a689996ea9e7e71003d5158c9e04da108ba387b66a44d23aabe8b35876cf10df5e3ef6c62df265b939b44696068126e682a0103ffa"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 23,
+                                            "codigo": 23777
+                                        },
+                                        "ordemGeracaoHash": 38,
+                                        "hash": "b7301a892f7f2052ae74bfdcef8a1dbd5efad5e5de2e2def0f7e7ad3d488c8f43d4ca1e54d16cdec673b1fe84cbe29c4d25ed74c3b69d016f8b7dda788d7f9b6"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 2,
+                                        "identificacaoVotavel": {
+                                            "partido": 25,
+                                            "codigo": 25123
+                                        },
+                                        "ordemGeracaoHash": 39,
+                                        "hash": "7aa258d3271d1e308a9784631822e1047562f2158beb067e37a4569c9244e00f68fc29b2f67146202524f391b6432fc5814523069fe6af8969a4e9f3e939f0ec"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 2,
+                                        "identificacaoVotavel": {
+                                            "partido": 30,
+                                            "codigo": 30123
+                                        },
+                                        "ordemGeracaoHash": 40,
+                                        "hash": "d5f1848ebbc3a4e2896e9e1efe51d8b158d2e1e7129480c2a3dcc65109b4f39e7ebb63f4145aba6afe1808c87c2a8a41be1b3f85d0375c69dea74d727ab922b8"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 30,
+                                            "codigo": 30300
+                                        },
+                                        "ordemGeracaoHash": 41,
+                                        "hash": "42adb493619e219e1b856088b53ab813a3483da19b0879396012d021fd95fcbd1e0a17e6678bd45834764ceb5e3b7eada236f64b6cd83f308ba3fa4d8ddc482c"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 30,
+                                            "codigo": 30333
+                                        },
+                                        "ordemGeracaoHash": 42,
+                                        "hash": "925cdba5f0bc8264a2a0b1652fc67b62bc32cb4a497d3123fc2cb6c77bbca5d052d0f992c9c7d93cb7e15d475373e9c29e76fb6e6d35d5d91027e273f7249e46"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 30,
+                                            "codigo": 30777
+                                        },
+                                        "ordemGeracaoHash": 43,
+                                        "hash": "9b8aa6d96ea9b5fc0ba9ed557fd89d3ca13af0baabbdb16f24d184c5664371b92fb8dd66b4c406411443dd48f154b37ca90bc89e454862136f2921ab99e2fa23"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 40,
+                                            "codigo": 40000
+                                        },
+                                        "ordemGeracaoHash": 44,
+                                        "hash": "82e9298fc23509d604de781197d03bab4df8addff3b4852a9fc3e6e4349fbf43185714e71fa9c698fead8f4dbd0985e0034bbd2d76a361c7b65b69140e43c17b"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 40,
+                                            "codigo": 40400
+                                        },
+                                        "ordemGeracaoHash": 45,
+                                        "hash": "b4e17b47b11734ee5498819bb64e2bfaccf8bf4093755038e5111486e3df15520bbc678a1b82b64e541ed979a93470ab25467903037dc09c893027199057125f"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 40,
+                                            "codigo": 40999
+                                        },
+                                        "ordemGeracaoHash": 46,
+                                        "hash": "1f0a23e11efb571a6b5b2a7aa6005b1cd4d58381a5fc478b182ebd40b4eec872df9525b8f28b35696a2915856cb54e0a7b6b4d43b8859df38532cec57e3b7e20"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 43,
+                                            "codigo": 43000
+                                        },
+                                        "ordemGeracaoHash": 47,
+                                        "hash": "9fb6856236b5cfa668ab362dec5516225efa9a2533ac7ec4605582bc5d2448ad3f7f4a154ec58916bb3c6aa09723a2a7b976491157e23300fe1f99b7965819fa"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 3,
+                                        "identificacaoVotavel": {
+                                            "partido": 43,
+                                            "codigo": 43444
+                                        },
+                                        "ordemGeracaoHash": 48,
+                                        "hash": "96ad8a84a9bcc6d3b37486176369193f32b69ca3c80d32e405899c1a17ef390c3f5ecbf088fdce722e8979bf0f6d3a708f3ea172450163bf41325d83196e2264"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44000
+                                        },
+                                        "ordemGeracaoHash": 49,
+                                        "hash": "4d06587958db0cd4c83fa76adbc78187fda57deb1af42764d2ae3fd11908b3cbb46a9c4e799aa44b2c8de12a80de7acd546819444904333effaa60890f1d41aa"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44111
+                                        },
+                                        "ordemGeracaoHash": 50,
+                                        "hash": "6a238a6bda6983532efdd6b71dd27e3dce2099434401651c34f2103aa698018290fa049f86cd8020bf276e538ff39f5cf95336c2ebba567ed92a98ea6c58de7c"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 2,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44123
+                                        },
+                                        "ordemGeracaoHash": 51,
+                                        "hash": "fb3619abcf1072b6c4f5e9c87c990befc2104632827f86aabd208b1293287efacee617188836b6bb5a963dcb6fb96439f8a335a5514d961c530f8e197eec3dac"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44190
+                                        },
+                                        "ordemGeracaoHash": 52,
+                                        "hash": "8276f61bb7ced9bc6a34b042e8f5b6e4f3b7b02ee1ec8fe8630567912297f044d4c11dfbe34bcc78f4e71d34e1cecf2cd5e0cffaffe0a232009a640055830dd6"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 4,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44444
+                                        },
+                                        "ordemGeracaoHash": 53,
+                                        "hash": "ca76b70f97c4f51a8f3626d3bf660efdbfcd43b30c21d79cd28eb3caccf1a3ba594601ee2cae4bcbea49d3c7e4b3656c023d567a35726aa52ca6007ead44c485"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 5,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44555
+                                        },
+                                        "ordemGeracaoHash": 54,
+                                        "hash": "2a8851850f5c68fa2e25129e8a63fc417ccdb25e6be604668624e36d0344b8591734d8967ea2d8a91d4656bff2433dbe0fb7784a0d0cc327db9fc63e7f7dfc0f"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 3,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44567
+                                        },
+                                        "ordemGeracaoHash": 55,
+                                        "hash": "c0f11f34de1b94e87d545e62c95589a9e8a7b1fef0a5ac2c2474d2ccee6463124d0560691dbfeff94120c33e3b1f2069601ff37e67237f396cb982ffdb44e01a"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 2,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44777
+                                        },
+                                        "ordemGeracaoHash": 56,
+                                        "hash": "d449b09cafd5c39d0283976b0488f636589dfb04bb67d8c952c376d5d7f48d2872657dd3ae85cb155ea972b5bec876e785cd11235528644dcb21f7c0c25da22e"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 5,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44800
+                                        },
+                                        "ordemGeracaoHash": 57,
+                                        "hash": "c09f78a33d5d1865cee974de92c8521e9933eab2ed4411c0520fc8ec8450bf92678c5c30df9ed91fdbdb291b7b84e2cd6de9180db4747fab763b2708216d8c67"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 7,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44888
+                                        },
+                                        "ordemGeracaoHash": 58,
+                                        "hash": "c438814723afca64e8d0d9151d3324fa620633b53cca3f6e2608727ef49206e4bc2265bdf0c5dc3775cbb09e9cf26a270e78ea1b56d8328989637499c59225d2"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 45,
+                                            "codigo": 45000
+                                        },
+                                        "ordemGeracaoHash": 59,
+                                        "hash": "71763799158dea959402cb1edd8853777ca307e74f386e103c51320f365d2e3f36bd363f6f0b1bbb471c22c471315e8e8183cf731597f93a526eefd5a8c61370"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 45,
+                                            "codigo": 45111
+                                        },
+                                        "ordemGeracaoHash": 60,
+                                        "hash": "3191153ea6c214b4293c7bcbd54ce33cf1345274c83a8f6fc7971f2808991cce388a75266b58d9bff5151d37a9fe3554343939dceb8c9ad9d878d427bb2bfc63"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 11,
+                                        "identificacaoVotavel": {
+                                            "partido": 45,
+                                            "codigo": 45123
+                                        },
+                                        "ordemGeracaoHash": 61,
+                                        "hash": "29e88f625b74339c34f54283d1da09b774dc544342ab4a622ad87baa5c617ec71de8a35738f0c3fd6dd3a68a68a97a6b084b376eea44d9135fadcc8bc0fa9542"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 2,
+                                        "identificacaoVotavel": {
+                                            "partido": 45,
+                                            "codigo": 45222
+                                        },
+                                        "ordemGeracaoHash": 62,
+                                        "hash": "d39cea30c81f9a1545adc47b6296de275bf7bff4f0283a610976fbeed98904a19c34a013a66e45006bc128c029e193ec503a4943c6608934ac01d7873636e0b6"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 7,
+                                        "identificacaoVotavel": {
+                                            "partido": 45,
+                                            "codigo": 45444
+                                        },
+                                        "ordemGeracaoHash": 63,
+                                        "hash": "350f2f9817fbd3b4fb643819dcd51b04df4e8f6f9d96b2c49db1b02172932b2b7949861da16184f5efb653ef8231ba081fa550accff31b012e4bdfc00932a175"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 50,
+                                            "codigo": 50000
+                                        },
+                                        "ordemGeracaoHash": 64,
+                                        "hash": "2db36f6ef420b64e290180ee47d29a51735f47cb97da091ffd5ac5cd50e30b1c92b9193d8d053a740f3e4804c6ad282a8c021f2992977b428ea1f6c224191d33"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 55,
+                                            "codigo": 55123
+                                        },
+                                        "ordemGeracaoHash": 65,
+                                        "hash": "3409d54603a01b11208a2eeee887be068f6ea7710ca838358f3ade018cb9d54f07eadac6f6b5b260a78d36124e75e61c6f08f2aaec4ea29ba928a579ac936919"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 77,
+                                            "codigo": 77000
+                                        },
+                                        "ordemGeracaoHash": 66,
+                                        "hash": "408b744b9379b27fcb488c5369817b134568b913ba64a5ef8d78ee48afb30520d0cdd91917b3a088acbdb3e84b232d46497fddcf7eb9950b424b7c796510ee4b"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 77,
+                                            "codigo": 77012
+                                        },
+                                        "ordemGeracaoHash": 67,
+                                        "hash": "536bc099da0146d69cbaf08ec09632c837d675e13d8fc98ae9180b1ada0afaef17cdd946311ec3586b3b5bcbb74ece831864669339ae2c8db010665ab2fe3d7d"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 77,
+                                            "codigo": 77100
+                                        },
+                                        "ordemGeracaoHash": 68,
+                                        "hash": "77dee09a87113291b67c9249a2f40ef7cc29e4e4f9741cf024c145757c27dd92bf5eeb7870ebb9b6217ceb5e6f4f9941dd145cb217dd98d462235ff9ff7531c2"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 77,
+                                            "codigo": 77123
+                                        },
+                                        "ordemGeracaoHash": 69,
+                                        "hash": "320f771f1fca1e18e8b9d2086d7c5faec58ef2fcdaec6a9ab406facdc149adedc4d0ab89bbfa11b938772833b343e23d701a06ea472e06dcdfedcf49ac35042d"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 6,
+                                        "identificacaoVotavel": {
+                                            "partido": 77,
+                                            "codigo": 77321
+                                        },
+                                        "ordemGeracaoHash": 70,
+                                        "hash": "958f36a3e3fcb94decfae23312c3e73b00388a3a423e14943b5a4bac68fc19dd613ed2e4a65bb9a1455b1c2840097dbd3b54d2474648dd3bd55267ce80fe4d3f"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 3,
+                                        "identificacaoVotavel": {
+                                            "partido": 77,
+                                            "codigo": 77444
+                                        },
+                                        "ordemGeracaoHash": 71,
+                                        "hash": "94cc20437685cd231be9670078e8d04be1249a16d23c2a797ceff7a99d2dfb969f04a8b70d4a74176b1bdb27e6fd9713e1cfdb81fe99adf26905fa078706124e"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 21,
+                                        "identificacaoVotavel": {
+                                            "partido": 77,
+                                            "codigo": 77777
+                                        },
+                                        "ordemGeracaoHash": 72,
+                                        "hash": "f824a0db8b99f247d57e3e37a6e4d8bd64e598304bfe4d8065ef262122da9122c4bfc236327ae0bb9ad8134f665e87522650315a8a571ab881bb929cdf3ee82f"
+                                    },
+                                    {
+                                        "tipoVoto": "branco",
+                                        "quantidadeVotos": 3,
+                                        "ordemGeracaoHash": 73,
+                                        "hash": "96ca3fa053fb1c66d661e14a919ea637e5dfaf794068cd7872230bcde52abce7f3f26b2b8cec840f3cab8d30e085231c8be5a12407ca46adf34cdcfb18c74fff"
+                                    },
+                                    {
+                                        "tipoVoto": "nulo",
+                                        "quantidadeVotos": 2,
+                                        "ordemGeracaoHash": 74,
+                                        "hash": "b838d66aee563ba0a606f122ba54fbc8b01a8d52005b5c494a80236787d475f35e96f19448206f1f94bb2d6a8a41f4411fb11727aea41e4a7de8e953cbe54a70"
+                                    },
+                                    {
+                                        "tipoVoto": "legenda",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 10,
+                                            "codigo": 10
+                                        },
+                                        "ordemGeracaoHash": 75,
+                                        "hash": "29d85831c3b057d5d13b10306eb8bdc952186c2493fc9b05925b96d159c611ba940b04e590fd092b9a8c0980eabb3bf5eb701ea4682da1e370b2417969118fe4"
+                                    },
+                                    {
+                                        "tipoVoto": "legenda",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 11,
+                                            "codigo": 11
+                                        },
+                                        "ordemGeracaoHash": 76,
+                                        "hash": "e98288a788fb87efa4bda110827889956cdc128972fb676216bf4475acfcde85c278f569a69fd471bcab9fe3ae8334bd02e511503589d267800549939fc55853"
+                                    },
+                                    {
+                                        "tipoVoto": "legenda",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 15,
+                                            "codigo": 15
+                                        },
+                                        "ordemGeracaoHash": 77,
+                                        "hash": "173c3915f2a7ad2f45f715dbede4c257d9303c9a36ca3465f06ebe3205e2075fcd14f256c4ba435d3da6fffd162ca02b408d5d97908a57978cb112acda1df053"
+                                    },
+                                    {
+                                        "tipoVoto": "legenda",
+                                        "quantidadeVotos": 5,
+                                        "identificacaoVotavel": {
+                                            "partido": 22,
+                                            "codigo": 22
+                                        },
+                                        "ordemGeracaoHash": 78,
+                                        "hash": "8141cb47068211944cc4488e1ef2f7a40fce9eb0529e60d7e80a356a38c89fbb901688837c4d80ccbae0667b979d89df0aaaf170490744004cdc28907497fee2"
+                                    },
+                                    {
+                                        "tipoVoto": "legenda",
+                                        "quantidadeVotos": 1,
+                                        "identificacaoVotavel": {
+                                            "partido": 44,
+                                            "codigo": 44
+                                        },
+                                        "ordemGeracaoHash": 79,
+                                        "hash": "664aa4d97a94004477ddcbbda34919d0ee4496858cd069e1c03e2bfc6133c1249f6603f0d82618b6be33e432fa73e6e8bfc200ce8a25d84e28e04afffe3f6804"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "tipoCargo": "majoritario",
+                        "qtdComparecimento": 222,
+                        "totaisVotosCargo": [
+                            {
+                                "codigoCargo": [
+                                    "cargoConstitucional",
+                                    "prefeito"
+                                ],
+                                "ordemImpressao": 2,
+                                "votosVotaveis": [
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 64,
+                                        "identificacaoVotavel": {
+                                            "partido": 15,
+                                            "codigo": 15
+                                        },
+                                        "ordemGeracaoHash": 1,
+                                        "hash": "dacf905a6b886e3a04629379980d08e0ee0227289ecdaadc69cc389b49116b15c82f4f01c34933bf5e68f6ce5c3ce12bc536b8ba39d2ebd9d70bf169625d8232"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 138,
+                                        "identificacaoVotavel": {
+                                            "partido": 22,
+                                            "codigo": 22
+                                        },
+                                        "ordemGeracaoHash": 2,
+                                        "hash": "23a4521cd96a0e2ee055d8d69c654762d26b8803891238648f2185697f0bfc026a6d42e2948615b1ac725d230faddb6493510f6d5287dffe21ec8892415e4adc"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 7,
+                                        "identificacaoVotavel": {
+                                            "partido": 30,
+                                            "codigo": 30
+                                        },
+                                        "ordemGeracaoHash": 3,
+                                        "hash": "bf37fbc3a37f68b5a2e2d421d03289191e4ae98027d2e4b8472752e42afad88216e18df353c79632895ccd369e29652b2251247c206b8e9fbcc73624768b1385"
+                                    },
+                                    {
+                                        "tipoVoto": "nominal",
+                                        "quantidadeVotos": 7,
+                                        "identificacaoVotavel": {
+                                            "partido": 40,
+                                            "codigo": 40
+                                        },
+                                        "ordemGeracaoHash": 4,
+                                        "hash": "e0985417185850a5f89cfcadfb0757f2d3c2abf0160509fd4e6ce213b222db7afe39f93075464c4e8a2e61445dd5871038e31e6df4bc853518426008c37e5c32"
+                                    },
+                                    {
+                                        "tipoVoto": "branco",
+                                        "quantidadeVotos": 2,
+                                        "ordemGeracaoHash": 5,
+                                        "hash": "5d4af1f8d20d756c8c50e9f62fc7b040e6600df02e6cca33c5aff1f64c53a594e432a427f39a33107ed9fce2e1de16435066429906ecb3e6911ddc95d409fa76"
+                                    },
+                                    {
+                                        "tipoVoto": "nulo",
+                                        "quantidadeVotos": 4,
+                                        "ordemGeracaoHash": 6,
+                                        "hash": "2277250ef9a151c77489a1625669d1926642b3d0a93b1a443bde67ab59b5ee940cdc49ad17a384d97c32b0d1a904ee16424883c67bf5c82e293a1636494ed490"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "ultimoHashVotosVotavel": "2277250ef9a151c77489a1625669d1926642b3d0a93b1a443bde67ab59b5ee940cdc49ad17a384d97c32b0d1a904ee16424883c67bf5c82e293a1636494ed490",
+                "assinaturaUltimoHashVotosVotavel": "8755c748a4bce47de274a0d724aa9c2366c0c483c55e49b72a0ea6c8d4f65acce73d9f602fd2968a824adcdcbd763d517a0e20fd46fa68b4a336df946ee6b5ba2500fa5c19652c304b705f3f8c1491b823b16e8527bfaaf36b9f6cf2032f12b771338fe7731ee7fff2b539ed7a0ccd669d0ae75b99e67bfb98efda7c0c86a411a2277200"
+            }
+        ],
+        "historicoCodigosCarga": [
+            "570468136039261752227698"
+        ]
+    }
+}

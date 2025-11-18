@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portal de Fiscalização - Eleições 2024</title>
+        <style>
+            /* Estilos globais */
+            body,
+            html {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                color: #062261;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                /* background-image: url('transparencia.png'); */
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                /* Não repete a imagem */
+            }
+
+            .overlay {
+                background-color: rgba(6, 34, 97, 0.8);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+            }
+
+            .container {
+                margin: auto;
+                margin-top: 250px;
+                z-index: 10;
+                width: 400px;
+                padding: 2rem;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+
+            header h1 {
+                color: #062261;
+                margin-bottom: 1rem;
+            }
+
+            .date {
+                font-size: 2.5em;
+                color: #13248a;
+                /* Azul neon */
+            }
+
+            .countdown {
+                margin-top: 5px;
+                font-size: 2em;
+                color: #be620c;
+                /* Verde neon */
+            }
+            .logo-img{
+                width: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="background">
+            <div class="overlay">
+                <div class="container">
+                    <header>
+                        <img class="logo-img pb-3"
+                            src="logo_portal_do_fiscal.png" alt="logo">
+                        <span class="date">03.10.2024 - 23h</span>
+                        <!-- <h3>Em Instantes!!</h3> -->
+                        <div id="countdown" class="countdown"></div>
+                    </header>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById('loginForm');
+            const modal = document.getElementById('infoModal');
+            const closeModalBtn = document.getElementsByClassName("close")[0];
+            const infoContainer = document.getElementById('infoContainer');
+
+            // Evento de submissão do formulário
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Impede o envio do formulário tradicional
+
+                const cpf = document.getElementById('cpf').value;
+                const dob = document.getElementById('dob').value;
+
+                // Requisição AJAX para processar o login
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'process.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // Carregar as informações no modal
+                        infoContainer.innerHTML = xhr.responseText;
+                        modal.style.display = "block";
+                    }
+                };
+                xhr.send('cpf=' + cpf + '&dob=' + dob);
+            });
+
+            // Fechar o modal
+            closeModalBtn.onclick = function () {
+                modal.style.display = "none";
+            };
+
+            // Fechar o modal se clicar fora dele
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        });
+
+        // Contador
+        const targetDate = new Date("2024-10-03T23:00:00Z").getTime();
+
+        const countdownElement = document.getElementById("countdown");
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const targetDate = new Date("2024-10-03T23:00:00").getTime(); // Usando a hora local
+
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (distance <= 0) {
+                countdownElement.innerHTML = "Aguarde para liberar o acesso!!!";
+            } else {
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        };
+
+        // Atualiza o contador a cada segundo
+        setInterval(updateCountdown, 1000);
+
+        </script>
+    </body>
+</html>
