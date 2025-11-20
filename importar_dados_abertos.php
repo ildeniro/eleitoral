@@ -1,6 +1,6 @@
 <?php
 
-// importar_dados_abertos_2022.php - VERSÃO FINAL 100% FUNCIONAL
+// importar_dados_abertos.php - VERSÃO FINAL 100% FUNCIONAL
 
 set_time_limit(0);
 ini_set('memory_limit', '1G');
