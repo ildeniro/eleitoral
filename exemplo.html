@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Candidate Electoral History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+      :root {
+        --charcoal-900: #1a1a1a;
+        --charcoal-800: #262626;
+        --charcoal-700: #363636;
+        --charcoal-600: #4a4a4a;
+        --charcoal-500: #5e5e5e;
+        --charcoal-400: #7d7d7d;
+        --charcoal-300: #a0a0a0;
+        --charcoal-200: #c9c9c9;
+        --charcoal-100: #f2f2f2;
+        --dark-teal-accent: #0f766e;
+        --dark-teal-accent-hover: #13948b;
+        --blue-accent: #3b82f6;--light-grey-bg: #e5e7eb;}
+    </style>
+<style>.map-placeholder {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCB3L5rXaVSe5v4XnczhVJN8MOPe5PkdjyP5UKBgmLpI0mFwkPXNd9t1_IhMJsIDMamGmzEo2cxihMu7tHdC-Je1mOr6bAs5th89fHah-Gj_ULfrabkPUOBIqGQrarPtqNZTFYNlTe7UtRW8j29yCeRxvWaOYK5GET4s3Rk9sTcpUiongDzopYAdq82uwKbxl4ynccIMHVxVV1lHKVDm1tK16zIMNXzIyb2PyNDJKN7bBtIz1t_z5bpQ8aIQebibJDqcTOyaZ3XDPc);
+    background-size: cover;
+    background-position: center;
+    position: relative
+    }</style>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "var(--dark-teal-accent)",
+              "background-light": "var(--charcoal-100)",
+              "background-dark": "var(--charcoal-900)",
+              "sidebar-light": "var(--charcoal-100)",
+              "sidebar-dark": "var(--charcoal-800)",
+              "text-light": "var(--charcoal-900)",
+              "text-dark": "var(--charcoal-100)",
+              "text-muted-light": "var(--charcoal-500)",
+              "text-muted-dark": "var(--charcoal-400)",
+              "item-bg-light": "var(--charcoal-200)",
+              "item-bg-dark": "var(--charcoal-700)",
+              "item-hover-light": "var(--charcoal-300)",
+              "item-hover-dark": "var(--charcoal-600)",
+              "blue-accent": "var(--blue-accent)","light-grey-bg": "var(--light-grey-bg)",},
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem", // 8px
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="font-sans bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="w-[20rem] flex-shrink-0 bg-sidebar-light dark:bg-sidebar-dark shadow-lg overflow-y-auto">
+<div class="p-6">
+<div class="flex flex-col items-center text-center">
+<img alt="Portrait of Edvaldo Magalhaes" class="w-[90%] aspect-square object-cover rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeffHjLk6LY5LOJtPIgwPXi1rpsrxRTuuefZedqqCsOWLf40nBAqcQU81WCAm9_NOmshk95pe_v6otdh7_1P7Xm6VyU2aOkRoWmSuOOCgT6quK6SF9OYAlsU3hlZJZqxHPI8k5QX3Tb5cMGaRVUymIt53WlV3vfSBkVYNBvgheNbWeWAHtMIeT4e7hAjMtkliI_K60ykiMhn9T-P0esiXYnjwnxO3CxUUKqAIOR_Xc8oCex-OUpCr6NAI7ag6A9_oLu2kibyppw4E"/>
+<h1 class="mt-4 text-[26px] font-semibold text-charcoal-900 dark:text-charcoal-100">EDVALDO MAGALHAES</h1>
+<p class="text-sm text-charcoal-500 dark:text-charcoal-400 font-normal">Edvaldo de Sousa Magalhães</p>
+</div>
+<div class="mt-8">
+<h2 class="text-xs font-medium uppercase tracking-wider text-charcoal-500 dark:text-charcoal-400 mb-4">Election History</h2>
+<ul class="space-y-3">
+<li>
+<a class="block p-4 rounded-lg border-2 border-blue-accent bg-white dark:bg-charcoal-800 text-charcoal-900 dark:text-charcoal-100 shadow-md font-normal transition-colors" href="#">
+<div class="flex items-center">
+<span class="w-2 h-2 mr-2 rounded-full bg-blue-accent flex-shrink-0"></span>
+<span class="font-semibold text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">2018</span>
+</div>
+<span class="block text-sm font-normal text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">Deputado Estadual (PC)</span>
+<span class="block text-base font-medium mt-1 text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">12,345 Votes</span>
+</a>
+</li>
+<li>
+<a class="block p-4 rounded-lg bg-light-grey-bg dark:bg-charcoal-700 text-charcoal-900 dark:text-charcoal-100 hover:bg-charcoal-200 dark:hover:bg-charcoal-600 transition-colors" href="#">
+<span class="font-semibold text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">2014</span>
+<span class="block text-sm font-normal text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">Deputado Estadual (PCdoB)</span>
+<span class="block text-base font-medium mt-1 text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">10,987 Votes</span>
+</a>
+</li>
+<li>
+<a class="block p-4 rounded-lg bg-light-grey-bg dark:bg-charcoal-700 text-charcoal-900 dark:text-charcoal-100 hover:bg-charcoal-200 dark:hover:bg-charcoal-600 transition-colors" href="#">
+<span class="font-semibold text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">2010</span>
+<span class="block text-sm font-normal text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">Deputado Estadual (PCdoB)</span>
+<span class="block text-base font-medium mt-1 text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">9,543 Votes</span>
+</a>
+</li>
+<li>
+<a class="block p-4 rounded-lg bg-light-grey-bg dark:bg-charcoal-700 text-charcoal-900 dark:text-charcoal-100 hover:bg-charcoal-200 dark:hover:bg-charcoal-600 transition-colors" href="#">
+<span class="font-semibold text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">2006</span>
+<span class="block text-sm font-normal text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">Deputado Estadual (PCdoB)</span>
+<span class="block text-base font-medium mt-1 text-[var(--charcoal-900)] dark:text-[var(--charcoal-100)] opacity-70">8,765 Votes</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</aside>
+<main class="flex-1 map-placeholder">
+<div class="absolute top-4 left-4 z-10 flex flex-col bg-sidebar-light dark:bg-charcoal-700 rounded shadow-md">
+<button class="p-2 text-charcoal-500 dark:text-charcoal-400 hover:bg-charcoal-300 dark:hover:bg-charcoal-600 border-b border-charcoal-200 dark:border-charcoal-700 rounded-t transition-colors">
+<span class="material-icons">add</span>
+</button>
+<button class="p-2 text-charcoal-500 dark:text-charcoal-400 hover:bg-charcoal-300 dark:hover:bg-charcoal-600 rounded-b transition-colors">
+<span class="material-icons">remove</span>
+</button>
+</div>
+<img alt="Map with blue circular data points indicating electoral results distribution." class="absolute inset-0 w-full h-full object-contain pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGVvTSO9bG9txbPjS4mVtcE0q-WBwUN_I4zZQRRKkeWEdEt5ZmeSsSobXgCNXiGNd8NC6ni0thDeIm07wBSagzszP4ogTR-KWYzkKXixeT-vjXQm60B0osgTpSfRJh8k3LJWcH3TEPxXT7t8ePdMFDYQl4JqrXrxJgxGLVOIzR0zYv_rXWKUAHYFLJy-RKQ4X0jhlfIqmCEBS9jEPXX92l589l0s5ZgOM3NnSuHq-Hv4rd58zlITmfd1ZQ_o6eG17c8wNGN_HV3YA"/>
+</main>
+</div>
+</body></html>

@@ -11,14 +11,8 @@ if (!is_dir($diretorio)) {
 }
 
 $arquivos_esperados = [
-    2024 => "votacao_secao_2024_AC.csv",
-    2022 => "votacao_secao_2022_AC.csv",
-    2020 => "votacao_secao_2020_AC.csv",
-    2018 => "votacao_secao_2018_AC.csv",
-    2016 => "votacao_secao_2016_AC.csv",
     2014 => "votacao_secao_2014_AC.csv",
     2012 => "votacao_secao_2012_AC.csv",
-    2008 => "votacao_secao_2008_AC.csv",
 ];
 
 echo "<h1 style='color:#0066cc; font-family: Arial;'>IMPORTADOR HISTÓRICO ELEITORAL - ESTADO DO ACRE (22 municípios)</h1>";

@@ -10,7 +10,7 @@ $anos = $db->query("SELECT DISTINCT ano FROM resultados_eleitorais WHERE ano >= 
 // Candidatos que disputaram nos dois anos (ou pelo menos em um deles)
 $stmt_c = $db->prepare("
     SELECT DISTINCT c.sq_candidato, c.nm_urna_candidato, c.nr_candidato, c.sg_partido, c.ds_cargo, c.ano_eleicao
-    FROM candidatos_gerais c
+    FROM candidatos_detalhados c
     INNER JOIN resultados_eleitorais r ON c.sq_candidato = r.sq_candidato
     WHERE c.ano_eleicao IN (?, ?)
       AND c.cd_cargo IN (11, 3) -- 11 = Prefeito, 3 = Governador
@@ -29,7 +29,7 @@ $candidato_info = null;
 if ($sq_candidato) {
     $stmt_info = $db->prepare("
         SELECT ano_eleicao, sq_candidato, nm_urna_candidato, nr_candidato, sg_partido, ds_cargo 
-        FROM candidatos_gerais 
+        FROM candidatos_detalhados 
         WHERE sq_candidato = ? 
         LIMIT 1
     ");

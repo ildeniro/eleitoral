@@ -24,7 +24,7 @@ def process_dict(entidade: dict):
             processed[key] = valor_membro(membro)
     return processed
 
-def processa_bu(asn1_paths: list, bu_path: str):
+def processa_bu(asn1_paths: list, bu_path: str, output_path: str = None):
     conv = asn1tools.compile_files(asn1_paths, codec="ber")
     with open(bu_path, "rb") as file:
         envelope_encoded = bytearray(file.read())
@@ -36,16 +36,17 @@ def processa_bu(asn1_paths: list, bu_path: str):
     envelope_decoded = process_dict(envelope_decoded)
     bu_decoded = process_dict(bu_decoded)
 
-    # Salva o JSON na mesma pasta do script
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    json_file_path = os.path.join(base_dir, "bu_output.json")
-    with open(json_file_path, "w", encoding="utf-8") as json_file:
+    # Salva o JSON
+    if not output_path:
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        output_path = os.path.join(base_dir, "bu_output.json")
+    with open(output_path, "w", encoding="utf-8") as json_file:
         json.dump({
             "EntidadeEnvelopeGenerico": envelope_decoded,
             "EntidadeBoletimUrna": bu_decoded
         }, json_file, indent=4, ensure_ascii=False)
 
-    logging.info(f"JSON salvo em: {json_file_path}")
+    logging.info(f"JSON salvo em: {output_path}")
 
 def main():
     parser = argparse.ArgumentParser(
@@ -55,6 +56,8 @@ def main():
                         help="Caminho para o arquivo de especificação asn1 do BU")
     parser.add_argument("-b", "--bu", type=str, required=True,
                         help="Caminho para o arquivo de BU originado na UE")
+    parser.add_argument("-o", "--output", type=str, required=False, default=None,
+                        help="Caminho de saída para o arquivo JSON gerado")
     parser.add_argument("--debug", action="store_true", help="ativa o modo DEBUG do log")
 
     args = parser.parse_args()
@@ -73,7 +76,7 @@ def main():
             logging.error("Arquivo de especificação do BU (%s) não encontrado", asn1_path)
             sys.exit(-1)
 
-    processa_bu(asn1_paths, bu_path)
+    processa_bu(asn1_paths, bu_path, args.output)
 
 if __name__ == "__main__":
     main()

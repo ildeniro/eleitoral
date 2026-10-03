@@ -1,0 +1,170 @@
+================================================================================
+RELATORIO E REGISTRO DE IMPLEMENTACOES - APURACAO ELEICOES 2026 (ACRE)
+Data do Registro: 22/09/2026
+Projeto: Sistema Eleitoral - Modulo 2026
+Localizacao do Projeto: c:\xampp8\htdocs\eleitoral\
+================================================================================
+
+1. OBJETIVO DO PROJETO
+--------------------------------------------------------------------------------
+Desenvolvimento e adaptacao do sistema de apuracao paralela em tempo real e
+importacao de dados para as Eleicoes Gerais de 2026, com foco exclusivo no
+Estado do Acre (22 municipios, 9 zonas eleitorais e 2.411 secoes eleitorais).
+
+O sistema suporta:
+- Consumo continuo em tempo real via CDN oficial do TSE (resultados-sim / resultados);
+- Decodificacao de envelopes criptograficos assinados JWS (.jws);
+- Decodificacao de Boletins de Urna (BU) brutos em formato ASN.1 / BER (.bu);
+- Importacao em lote de arquivos CSV do Portal de Dados Abertos (dadosabertos.tse.jus.br);
+- Painel moderno de acompanhamento com filtros por cargo e municipio.
+
+
+2. DIFERENCA: DADOS ABERTOS vs. APURACAO EM TEMPO REAL (CDN)
+--------------------------------------------------------------------------------
+- Portal de Dados Abertos (dadosabertos.tse.jus.br):
+  Publica arquivos consolidados em CSV dias ou semanas apos o encerramento da
+  eleicao. Nao serve para totalizacao minuto a minuto no dia do pleito.
+
+- CDN de Resultados do TSE (resultados.tse.jus.br / simulado):
+  Publica em tempo real a cada fechamento de urna / lote. Utiliza dois tipos de dados:
+  a) Arquivos consolidados de totalizacao assinados digitalmente (JWS):
+     Ex: ac01392-c0003-e021272-u.jws
+  b) Boletins de Urna individuais (.bu / .busp) por zona e secao, compactados e
+     codificados em ASN.1 conforme especificacao do TSE.
+
+
+3. ELEICOES E CARGOS NO SIMULADO OFICIAL DO TSE (2026)
+--------------------------------------------------------------------------------
+O TSE divide as Eleicoes Gerais em dois codigos distintos na CDN:
+
+A) ELEICAO FEDERAL (Codigo no Simulado: 21270)
+   - Cargo 1 (c0001): Presidente da Republica
+
+B) ELEICAO ESTADUAL DO ACRE (Codigo no Simulado: 21272)
+   - Cargo 3 (c0003): Governador
+   - Cargo 5 (c0005): Senador (2 vagas em 2026)
+   - Cargo 6 (c0006): Deputado Federal
+   - Cargo 7 (c0007): Deputado Estadual
+
+C) CODIGO DO PLEITO PARA ARQUIVOS DE URNA / BU:
+   - No Simulado TSE 2026: 17801
+
+
+4. ESPECIFICACAO ASN.1 E PYTHON (2022 vs 2024/2026)
+--------------------------------------------------------------------------------
+- Em 2022, cada voto nominal possuia assinatura individual (TotalVotosVotavel.assinatura).
+- A partir de 2024 e mantido em 2026, o TSE adotou hashes encadeados:
+  * ordemGeracaoHash e hash dentro de TotalVotosVotavel;
+  * ultimoHashVotosVotavel e assinaturaUltimoHashVotosVotavel no encerramento da eleicao.
+- A especificacao atualizada em sn1/python/spec2024/bu.asn1 foi configurada.
+- O script Python sn1/json/bu_dump.py foi atualizado para suportar o parametro
+  de destino de saida (-o / --output).
+
+
+5. ESTRUTURA DO BANCO DE DADOS (MySQL)
+--------------------------------------------------------------------------------
+A) Tabela `2026_resultados`:
+   - Armazena os votos apurados por secao/municipio e consolidacoes.
+   - Possui CHAVE UNICA COMPOSTA (UNIQUE KEY):
+     (ANO_ELEICAO, TURNO, COD_MUNICIPIO_TSE, ZONA, SECAO, COD_CARGO, NUM_CANDIDATO, TIPO_VOTO)
+   - Utiliza 'INSERT INTO ... ON DUPLICATE KEY UPDATE QTD_VOTOS = VALUES(QTD_VOTOS)'
+     GARANTIA: Os dados NUNCA se duplicam no banco, apenas atualizam a contagem.
+
+B) Tabela `2026_candidatos`:
+   - Armazena os metadados dos candidatos (nome, nome de urna, numero, cargo, partido).
+   - Pre-populada com os candidatos reais para Governador e Senador no Acre em 2026:
+     * Governador: Mailza Assis (11), Alan Rick (10), Tiao Bocalom (22),
+                   Thor Dantas (40), Dr. Luisinho (36), Eudo Raffael (21).
+     * Senador: Gladson Cameli (111), Marcio Bittar (222), Jorge Viana (131),
+                Roberto Duarte (100), Jessica Sales (151).
+   - Atualiza-se dinamicamente conforme chegam novos candidatos do TSE.
+
+C) Tabela `2026_apuracao_municipios`:
+   - Armazena as estatisticas oficiais de urnas de cada municipio do Acre
+     enviadas pelo TSE (SECOES_TOTAL, SECOES_APURADAS, PORC_APURADA).
+
+
+6. ARQUIVOS CRIADOS E ORGANIZADOS NA PASTA `2026/`
+--------------------------------------------------------------------------------
+1. `2026/robo_consumo_continuo_2026.php`:
+   - Robô autonomo de consumo em tempo real via navegador ou terminal CLI (php).
+   - Consulta os 110 endpoints da CDN do TSE (5 cargos x 22 municipios) em paralelo
+     usando curl_multi em apenas ~5 a 6 segundos.
+   - Respeita os limites do TSE (100 req/s) consumindo apenas ~18 req/s a cada 30s.
+   - Grava e atualiza automaticamente as tabelas 2026_resultados, 2026_candidatos
+     e 2026_apuracao_municipios.
+
+2. `2026/resultado-geral-2026.php`:
+   - Painel principal de apuracao geral visual moderno (standalone).
+   - Acesso direto pelo navegador sem necessidade de autenticacao obrigatoria.
+   - Filtros funcionais para todos os 5 cargos:
+     * Presidente da Republica
+     * Governador
+     * Senador
+     * Deputado Federal
+     * Deputado Estadual
+   - Filtros para os 22 municipios do Acre e visualizacao geral do Estado.
+   - Barra de progresso de urnas apuradas e cards com ranking de votos.
+   - Atualizacao automatica da pagina a cada 30 segundos.
+
+3. `view/apuracao/resultado-geral-2026.php`:
+   - Versao do painel integrada ao layout e template padrao do sistema administrativo.
+
+4. `2026/teste_simulado_tse_aovivo.php`:
+   - Pagina de diagnostico e inspecao direta da transmissao ao vivo do TSE CDN.
+   - Possui botoes seletores para inspecionar cada cargo ao vivo.
+   - Botao "Gravar Todos os 5 Cargos na Base Local" que executa a carga completa
+     dos 22 municipios para teste imediato.
+
+5. `2026/importar_dados_abertos_2026.php` (e ponte na raiz `importar_dados_abertos_2026.php`):
+   - Interface web para importacao de arquivos CSV de Dados Abertos.
+   - Permite gerar massa de teste mock e contem o botao de limpar a base.
+
+6. `2026/consumir_simulado_2026.php` e `2026/consumir_2026.php`:
+   - Scripts para consumo secao a secao de arquivos .bu (Boletim de Urna).
+
+7. `2026/leitura_2026.php`:
+   - Leitor e parser dos JSONs dos BUs com persistencia protegida por chave unica.
+
+8. `2026/gerar_simulado_2026.php`:
+   - Gerador de arquivo CSV de mock local para testes de estresse.
+
+
+7. LINKS DE ACESSO LOCAL NO NAVEGADOR
+--------------------------------------------------------------------------------
+- Painel de Apuracao Geral 2026:
+  http://localhost/eleitoral/2026/resultado-geral-2026.php
+
+- Painel Integrado ao Layout Administrativo:
+  http://localhost/eleitoral/view/apuracao/resultado-geral-2026
+
+- Robo de Consumo Continuo e Automatico (Deixar aberto no dia da eleicao):
+  http://localhost/eleitoral/2026/robo_consumo_continuo_2026.php
+
+- Painel de Diagnostico / Conexao ao Vivo do TSE:
+  http://localhost/eleitoral/2026/teste_simulado_tse_aovivo.php
+
+- Gerenciador de Importacao de Dados Abertos:
+  http://localhost/eleitoral/2026/importar_dados_abertos_2026.php
+
+
+8. ONDE PARAMOS E PROXIMOS PASSOS (CHECKLIST PARA O DIA DA ELEICAO)
+--------------------------------------------------------------------------------
+[x] Estrutura da pasta 2026 criada e isolada sem interferir nos anos anteriores.
+[x] Banco de dados criado, indexado e com chaves unicas anti-duplicidade.
+[x] Consumo dos 22 municipios do Acre em paralelo via curl_multi testado e aprovado.
+[x] Integracao simultanea das duas eleicoes do TSE (21270 Federal e 21272 Estadual).
+[x] Suporte completo aos 5 cargos (Presidente, Governador, Senador, Dep. Federal, Dep. Estadual).
+[x] Filtro municipal isolando votos de cada cidade e somando o total estadual.
+[x] Botoes de limpeza de base (TRUNCATE) implementados e funcionais.
+
+O que fazer quando chegar a eleicao oficial de 2026:
+1. No arquivo `2026/robo_consumo_continuo_2026.php` e `2026/consumir_2026.php`:
+   - Substituir a URL de teste (resultados-sim.tse.jus.br) pela URL oficial (resultados.tse.jus.br).
+   - Atualizar os codigos das eleicoes oficiais divulgados pelo TSE para 2026
+     (substituir os codigos de simulado 21270 e 21272 pelos codigos oficiais).
+2. Na tela de apuracao ou importacao, clicar em "Limpar Resultados" para zerar a
+   base de testes e deixa-la pronta para o inicio oficial das 17h.
+3. Abrir o `robo_consumo_continuo_2026.php` em uma aba para alimentar o banco,
+   e a tela `resultado-geral-2026.php` no telao ou nos navegadores dos usuarios.
+================================================================================

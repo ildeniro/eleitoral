@@ -8,6 +8,11 @@
                 <select name="ano" required style="padding:10px; font-size:18px;">
                     <option value="2024">2024</option>
                     <option value="2022">2022</option>
+                    <option value="2020">2020</option>
+                    <option value="2018">2018</option>
+					<option value="2016">2016</option>
+					<option value="2014">2014</option>
+					<option value="2012">2012</option>
                 </select></p>
 
             <p><label><strong>Arquivo CSV (consulta_cand_XXXX_AC.csv):</strong></label><br>

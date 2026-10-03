@@ -13,7 +13,7 @@ $locais = [];
 $abrangencia = 'estadual';
 
 // Anos disponíveis
-$anos = $db->query("SELECT DISTINCT ano_eleicao FROM candidatos_gerais ORDER BY ano_eleicao DESC")->fetchAll(PDO::FETCH_COLUMN);
+$anos = $db->query("SELECT DISTINCT ano_eleicao FROM candidatos_detalhados ORDER BY ano_eleicao DESC")->fetchAll(PDO::FETCH_COLUMN);
 
 // Determina se é eleição municipal (2024, 2020, 2016, etc.)
 $is_municipal = in_array($ano, [2024, 2020, 2016, 2012]);
@@ -21,7 +21,7 @@ $is_municipal = in_array($ano, [2024, 2020, 2016, 2012]);
 // === CARGOS DISPONÍVEIS NO ANO SELECIONADO ===
 $cargos_disponiveis = [];
 if ($ano > 0) {
-    $sql = "SELECT DISTINCT cd_cargo, ds_cargo FROM candidatos_gerais WHERE ano_eleicao = ?";
+    $sql = "SELECT DISTINCT cd_cargo, ds_cargo FROM candidatos_detalhados WHERE ano_eleicao = ?";
     if ($is_municipal) {
         $sql .= " AND cd_cargo IN (11, 12, 13)"; // 11=Prefeito, 12=Vice, 13=Vereador
     }
@@ -37,7 +37,7 @@ $candidatos_lista = [];
 if ($ano > 0 && $cd_cargo > 0) {
     $sql = "
         SELECT sq_candidato, nm_urna_candidato, nr_candidato, sg_partido, ds_cargo, cd_cargo
-        FROM candidatos_gerais
+        FROM candidatos_detalhados
         WHERE ano_eleicao = ? AND cd_cargo = ?
     ";
     // Se for eleição municipal → filtra só Rio Branco
@@ -55,7 +55,7 @@ if ($ano > 0 && $cd_cargo > 0) {
 if ($ano && $cd_cargo && $sq_candidato) {
     $sql = "
         SELECT nm_urna_candidato, nr_candidato, ds_cargo, sg_partido, cd_cargo 
-        FROM candidatos_gerais 
+        FROM candidatos_detalhados 
         WHERE sq_candidato = ? AND ano_eleicao = ? AND cd_cargo = ?
     ";
     if ($is_municipal) {
