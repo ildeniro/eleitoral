@@ -7,14 +7,15 @@
 
 $root_dir = dirname(__DIR__);
 require_once $root_dir . '/config/geral.php';
+require_once __DIR__ . '/config_apuracao_2026.php';
 
 $db = Conexao::getInstance();
+$config = carregar_config_apuracao_2026();
 
 // Parâmetros identificados na transmissão ao vivo do TSE
-$eleicao_id  = isset($_GET['eleicao']) ? $_GET['eleicao'] : '21272'; // 21272 = Eleição Estadual Acre 2026 Simulado
 $cargo_code  = isset($_GET['cargo']) ? sprintf("%04d", (int)$_GET['cargo']) : '0003';       
-// Presidente (0001) é Eleição Federal 21270; os demais cargos estaduais são 21272
-$eleicao_id  = ($cargo_code === '0001') ? '21270' : (isset($_GET['eleicao']) ? $_GET['eleicao'] : '21272');
+// Presidente (0001) é Eleição Federal; os demais cargos estaduais são Eleição Estadual
+$eleicao_id  = ($cargo_code === '0001') ? $config['eleicao_federal'] : (isset($_GET['eleicao']) ? $_GET['eleicao'] : $config['eleicao_estadual']);
 $uf          = 'ac';
 
 $cargos_map = [
@@ -25,8 +26,10 @@ $cargos_map = [
     '0007' => 'Deputado Estadual'
 ];
 
-// URL oficial da CDN do TSE Simulado para o Acre
-$url_tse = "https://resultados-sim.tse.jus.br/simulado/simulado2026/ele2026/{$eleicao_id}/dados/{$uf}/{$uf}-c{$cargo_code}-e0{$eleicao_id}-u.jws";
+// URL da CDN do TSE para o Acre (respeitando ambiente oficial ou simulado)
+$url_tse = ($config['ambiente'] === 'oficial')
+    ? "https://resultados.tse.jus.br/oficial/ele2026/{$eleicao_id}/dados/{$uf}/{$uf}-c{$cargo_code}-e0{$eleicao_id}-u.jws"
+    : "https://resultados-sim.tse.jus.br/simulado/simulado2026/ele2026/{$eleicao_id}/dados/{$uf}/{$uf}-c{$cargo_code}-e0{$eleicao_id}-u.jws";
 
 // Ação de ingestão para o banco local
 $gravar_no_banco = isset($_POST['gravar']) || isset($_GET['gravar']);
@@ -78,11 +81,11 @@ if ($gravar_no_banco) {
     $municipios = $db->query($sqlMuni)->fetchAll(PDO::FETCH_ASSOC);
 
     $cargosConfig = [
-        ['eleicao' => '21270', 'code' => '0001', 'cargo_cd' => 1, 'nome' => 'presidente', 'sg_ue' => 'BR', 'nm_ue' => 'BRASIL'],
-        ['eleicao' => '21272', 'code' => '0003', 'cargo_cd' => 3, 'nome' => 'governador', 'sg_ue' => 'AC', 'nm_ue' => 'ACRE'],
-        ['eleicao' => '21272', 'code' => '0005', 'cargo_cd' => 5, 'nome' => 'senador', 'sg_ue' => 'AC', 'nm_ue' => 'ACRE'],
-        ['eleicao' => '21272', 'code' => '0006', 'cargo_cd' => 6, 'nome' => 'deputado federal', 'sg_ue' => 'AC', 'nm_ue' => 'ACRE'],
-        ['eleicao' => '21272', 'code' => '0007', 'cargo_cd' => 7, 'nome' => 'deputado estadual', 'sg_ue' => 'AC', 'nm_ue' => 'ACRE'],
+        ['eleicao' => $config['eleicao_federal'], 'code' => '0001', 'cargo_cd' => 1, 'nome' => 'presidente', 'sg_ue' => 'BR', 'nm_ue' => 'BRASIL'],
+        ['eleicao' => $config['eleicao_estadual'], 'code' => '0003', 'cargo_cd' => 3, 'nome' => 'governador', 'sg_ue' => 'AC', 'nm_ue' => 'ACRE'],
+        ['eleicao' => $config['eleicao_estadual'], 'code' => '0005', 'cargo_cd' => 5, 'nome' => 'senador', 'sg_ue' => 'AC', 'nm_ue' => 'ACRE'],
+        ['eleicao' => $config['eleicao_estadual'], 'code' => '0006', 'cargo_cd' => 6, 'nome' => 'deputado federal', 'sg_ue' => 'AC', 'nm_ue' => 'ACRE'],
+        ['eleicao' => $config['eleicao_estadual'], 'code' => '0007', 'cargo_cd' => 7, 'nome' => 'deputado estadual', 'sg_ue' => 'AC', 'nm_ue' => 'ACRE'],
     ];
 
     $mh = curl_multi_init();
@@ -93,12 +96,12 @@ if ($gravar_no_banco) {
         $nome = $m['nome'];
 
         foreach ($cargosConfig as $cfg) {
-            $url = "https://resultados-sim.tse.jus.br/simulado/simulado2026/ele2026/{$cfg['eleicao']}/dados/ac/ac{$cod}-c{$cfg['code']}-e0{$cfg['eleicao']}-u.jws";
+            $url = obter_url_tse_jws($cod, $cfg['code'], $cfg['eleicao'], $config['ambiente']);
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_TIMEOUT, 8);
-            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
+            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) EleitoralBot/2026');
             curl_multi_add_handle($mh, $ch);
             $curl_handles[] = [
                 'handle' => $ch,

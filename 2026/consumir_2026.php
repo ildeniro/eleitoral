@@ -13,14 +13,16 @@ $root_dir = dirname(__DIR__);
 require_once $root_dir . '/config/geral.php';
 require_once $root_dir . '/config/funcoes.php';
 require_once __DIR__ . '/leitura_2026.php';
+require_once __DIR__ . '/config_apuracao_2026.php';
 
 $db = Conexao::getInstance();
+$config = carregar_config_apuracao_2026();
 
 // Parâmetros de Configuração para o dia da eleição
 $eleicao       = isset($_GET['eleicao']) ? $_GET['eleicao'] : "ele2026";
-$pleito        = isset($_GET['pleito']) ? $_GET['pleito'] : "1"; // Código do pleito oficial divulgado pelo TSE
+$pleito        = isset($_GET['pleito']) ? $_GET['pleito'] : ($config['pleito'] ?? "3220"); // Código do pleito oficial divulgado pelo TSE
 $estado_sigla  = "ac";
-$ambiente      = "oficial";
+$ambiente      = $config['ambiente'] ?? "oficial";
 $url_base      = "https://resultados.tse.jus.br";
 
 // Diretórios locais dinâmicos

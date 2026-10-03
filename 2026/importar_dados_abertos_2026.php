@@ -107,12 +107,14 @@ function inserirLoteResultados($db, $batch) {
     }
 }
 
+require_once __DIR__ . '/config_apuracao_2026.php';
+
 // Ação de download sob demanda ou limpeza
 $acao = $_POST['acao'] ?? ($_GET['acao'] ?? '');
 
 if ($acao === 'limpar') {
-    $db->exec("TRUNCATE TABLE 2026_resultados");
-    $msg_sucesso = "Tabela 2026_resultados foi esvaziada com sucesso! O painel está zerado.";
+    zerar_base_apuracao_2026($db);
+    $msg_sucesso = "Tabelas 2026_resultados e 2026_apuracao_municipios foram esvaziadas/resetadas com sucesso! O painel está zerado para o início da apuração.";
 }
 
 if ($acao === 'gerar_simulado') {

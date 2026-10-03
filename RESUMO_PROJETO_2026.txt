@@ -33,21 +33,24 @@ O sistema suporta:
      codificados em ASN.1 conforme especificacao do TSE.
 
 
-3. ELEICOES E CARGOS NO SIMULADO OFICIAL DO TSE (2026)
+3. ELEICOES E CARGOS OFICIAIS DO TSE (ELEICOES GERAIS 2026)
 --------------------------------------------------------------------------------
-O TSE divide as Eleicoes Gerais em dois codigos distintos na CDN:
+Fonte: Arquivo Mestre Oficial do TSE (https://resultados.tse.jus.br/oficial/comum/config/ele-c.json)
+Data do Pleito: 04/10/2026 (1º Turno)
 
-A) ELEICAO FEDERAL (Codigo no Simulado: 21270)
+A) ELEICAO FEDERAL (Codigo Oficial: 6257 | Simulado: 21270)
    - Cargo 1 (c0001): Presidente da Republica
+   - Codigo para 2º Turno Oficial: 6258
 
-B) ELEICAO ESTADUAL DO ACRE (Codigo no Simulado: 21272)
+B) ELEICAO ESTADUAL DO ACRE (Codigo Oficial: 6259 | Simulado: 21272)
    - Cargo 3 (c0003): Governador
    - Cargo 5 (c0005): Senador (2 vagas em 2026)
-   - Cargo 6 (c0006): Deputado Federal
-   - Cargo 7 (c0007): Deputado Estadual
+   - Cargo 6 (c0006): Deputado Federal (8 vagas)
+   - Cargo 7 (c0007): Deputado Estadual (24 vagas)
+   - Codigo para 2º Turno Oficial: 6260
 
-C) CODIGO DO PLEITO PARA ARQUIVOS DE URNA / BU:
-   - No Simulado TSE 2026: 17801
+C) CODIGO DO PLEITO OFICIAL DO TSE (1º TURNO):
+   - Codigo do Pleito: 3220 (Simulado: 17801)
 
 
 4. ESPECIFICACAO ASN.1 E PYTHON (2022 vs 2024/2026)
@@ -71,13 +74,14 @@ A) Tabela `2026_resultados`:
      GARANTIA: Os dados NUNCA se duplicam no banco, apenas atualizam a contagem.
 
 B) Tabela `2026_candidatos`:
-   - Armazena os metadados dos candidatos (nome, nome de urna, numero, cargo, partido).
-   - Pre-populada com os candidatos reais para Governador e Senador no Acre em 2026:
-     * Governador: Mailza Assis (11), Alan Rick (10), Tiao Bocalom (22),
-                   Thor Dantas (40), Dr. Luisinho (36), Eudo Raffael (21).
-     * Senador: Gladson Cameli (111), Marcio Bittar (222), Jorge Viana (131),
-                Roberto Duarte (100), Jessica Sales (151).
-   - Atualiza-se dinamicamente conforme chegam novos candidatos do TSE.
+   - Armazena os metadados dos candidatos (nome, nome de urna, numero, cargo, partido, coligacao).
+   - SINCRONIZADA COM A BASE 100% OFICIAL DO TSE (335 candidatos reais, zero mocks):
+     * Presidente da República: 12 candidatos oficiais (Lula 13, Flavio Bolsonaro 22, Caiado 55, Zema 30, etc.)
+     * Governador do Acre: 6 candidatos (Mailza Assis 11, Alan Rick 10, Tião Bocalom 45, Thor Dantas 40, Dr. Luisinho 36, Eudo Raffael 21)
+     * Senador do Acre (2 vagas): 8 candidatos (Gladson Camelí 111, Marcio Bittar 222, Jorge Viana 131, Mara Rocha 100, Petecão 555, Eduardo Velloso 777, etc.)
+     * Deputado Federal do Acre (8 vagas): 87 candidatos reais registrados no TRE/TSE
+     * Deputado Estadual do Acre (24 vagas): 222 candidatos reais registrados no TRE/TSE
+   - Script de limpeza e re-sincronizacao oficial: `2026/carregar_candidatos_oficiais_2026.php`
 
 C) Tabela `2026_apuracao_municipios`:
    - Armazena as estatisticas oficiais de urnas de cada municipio do Acre
@@ -148,23 +152,30 @@ C) Tabela `2026_apuracao_municipios`:
   http://localhost/eleitoral/2026/importar_dados_abertos_2026.php
 
 
-8. ONDE PARAMOS E PROXIMOS PASSOS (CHECKLIST PARA O DIA DA ELEICAO)
+8. ONDE PARAMOS E CHECKLIST PREPARADO PARA DOMINGO (DIA DA ELEICAO)
 --------------------------------------------------------------------------------
 [x] Estrutura da pasta 2026 criada e isolada sem interferir nos anos anteriores.
 [x] Banco de dados criado, indexado e com chaves unicas anti-duplicidade.
 [x] Consumo dos 22 municipios do Acre em paralelo via curl_multi testado e aprovado.
-[x] Integracao simultanea das duas eleicoes do TSE (21270 Federal e 21272 Estadual).
-[x] Suporte completo aos 5 cargos (Presidente, Governador, Senador, Dep. Federal, Dep. Estadual).
-[x] Filtro municipal isolando votos de cada cidade e somando o total estadual.
-[x] Botoes de limpeza de base (TRUNCATE) implementados e funcionais.
+[x] Integracao simultanea das duas eleicoes do TSE (Federal e Estadual).
+[x] Suporte completo aos 5 cargos (Presidente, Governador, Senador [2 vagas], Dep. Federal [8], Dep. Estadual [24]).
+[x] Modulo central de configuracao `2026/config_apuracao_2026.php` e `config_apuracao.json`:
+    - Alternancia visual entre 'simulado' e 'oficial' com 1 clique pela interface web.
+    - Edicao e gravacao imediata dos codigos de eleicao Federal e Estadual pelo proprio navegador.
+[x] Botao de Diagnostico e Teste de Conexao ao Vivo do TSE com latencia e codigo HTTP.
+[x] Botao de 'Zerar Banco p/ Eleicao' seguro (trunca 2026_resultados e zera 2026_apuracao_municipios).
+[x] Relogios duplos sincronizados: Horario de Rio Branco/AC (UTC-5) e Horario de Brasilia/DF (UTC-3).
+[x] Auto-refresh inteligente no painel com seletor de intervalo (15s, 30s, 60s, pausar) e preservacao da rolagem da tela (scroll).
 
-O que fazer quando chegar a eleicao oficial de 2026:
-1. No arquivo `2026/robo_consumo_continuo_2026.php` e `2026/consumir_2026.php`:
-   - Substituir a URL de teste (resultados-sim.tse.jus.br) pela URL oficial (resultados.tse.jus.br).
-   - Atualizar os codigos das eleicoes oficiais divulgados pelo TSE para 2026
-     (substituir os codigos de simulado 21270 e 21272 pelos codigos oficiais).
-2. Na tela de apuracao ou importacao, clicar em "Limpar Resultados" para zerar a
-   base de testes e deixa-la pronta para o inicio oficial das 17h.
-3. Abrir o `robo_consumo_continuo_2026.php` em uma aba para alimentar o banco,
-   e a tela `resultado-geral-2026.php` no telao ou nos navegadores dos usuarios.
+PASSO A PASSO PARA O DOMINGO (DIA DA ELEICAO):
+1. Acessar o Robô: http://localhost/eleitoral/2026/robo_consumo_continuo_2026.php
+2. Clicar em "Zerar Banco p/ Eleição" para limpar quaisquer votos de simulado anteriores.
+3. Clicar em "Alterar Configuração":
+   - Selecionar: "🟢 Transmissão Oficial TSE (resultados.tse.jus.br)"
+   - Inserir os códigos oficiais divulgados pelo TSE para 2026 (Federal e Estadual).
+   - Salvar e Aplicar.
+4. Clicar em "Testar Conexão" para conferir se o TSE já liberou a resposta HTTP 200.
+5. Deixar a aba do Robô aberta em execução contínua alimentando o MySQL a cada 30s.
+6. Abrir o Telão de Apuração: http://localhost/eleitoral/2026/resultado-geral-2026.php
 ================================================================================
+
